@@ -16,6 +16,7 @@ The website will probably use Astro & their documentation framework.
 ### v0.0.1
 
 * Start with the D&D 5e SRD
+  * you can get the JSON version of the SRD here: https://github.com/5e-bits/5e-database/tree/main/src
 * modify how dying and death saves work
   * critical 1s no longer count as two failures. instead, they are given a lingering injury
   * 10s no longer count as a success. 1-10 is a failure, 11-20 is a success.
