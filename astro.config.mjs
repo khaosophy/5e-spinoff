@@ -11,6 +11,10 @@ export default defineConfig({
 			},
 			sidebar: [
 				{
+					label: 'Races',
+					autogenerate: { directory: 'races' },
+				},
+				{
 					label: 'Classes',
 					autogenerate: { directory: 'classes' },
 				},

@@ -1,0 +1,6 @@
+---
+import raceData from '../content/data/0.1/races.json';
+const { name } = Astro.props;
+const info = raceData.find((c) => c.name === name);
+---
+<h3>Hello World</h3>
