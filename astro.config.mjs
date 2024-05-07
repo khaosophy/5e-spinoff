@@ -11,6 +11,10 @@ export default defineConfig({
 			},
 			sidebar: [
 				{
+					label: 'Classes',
+					autogenerate: { directory: 'classes' },
+				},
+				{
 					label: 'Guides',
 					items: [
 						// Each item here is one entry in the navigation menu.
