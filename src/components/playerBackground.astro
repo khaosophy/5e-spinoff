@@ -3,7 +3,6 @@ import bgData from '../content/data/0.1/backgrounds.json';
 const { name, equipment, languages } = Astro.props;
 const info = bgData.find((c) => c.name === name);
 ---
-<h2>{name}</h2>
 {info?.description.map(desc => <p>{desc}</p>)}
 
 <dl>
