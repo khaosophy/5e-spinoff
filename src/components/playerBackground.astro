@@ -1,0 +1,30 @@
+---
+import bgData from '../content/data/0.1/backgrounds.json';
+const { name } = Astro.props;
+const info = bgData.find((c) => c.name === name);
+---
+<h2>{name}</h2>
+{info?.description.map(desc => <p>{desc}</p>)}
+
+<dl>
+  <dt>Skill Proficiences</dt>
+  <dd>{info?.starting_proficiencies.map(skill => skill.name).join(', ')}</dd>
+
+  <dt>Languages</dt>
+  <dd>{info?.language_options.choose} of your choice.</dd>
+
+  <dt>Equipment</dt>
+  <dd>
+    <ul>
+      {info?.starting_equipment.map(equip => (
+        <li>
+          {equip.quantity} {equip.equipment.name}
+          {/* todo: clean up equipment */}
+        </li>
+      ))}
+    </ul>
+  </dd>
+</dl>
+
+<h3>Feature: {info?.feature.name}</h3>
+<p>{info?.feature.desc}</p>

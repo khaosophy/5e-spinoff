@@ -11,6 +11,10 @@ export default defineConfig({
 			},
 			sidebar: [
 				{
+					label: 'Backgrounds',
+					autogenerate: { directory: 'backgrounds' },
+				},
+				{
 					label: 'Races',
 					autogenerate: { directory: 'races' },
 				},
