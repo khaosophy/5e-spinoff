@@ -20,3 +20,70 @@ const info = bgData.find((c) => c.name === name);
 
 <h3>Feature: {info?.feature.name}</h3>
 {info?.feature.desc.map(p => <p>{p}</p>)}
+
+<h3>Suggested Characteristics</h3>
+{info?.suggested_characteristics.map(p => <p>{p}</p>)}
+
+<table>
+  <thead>
+    <tr>
+      <th>d8</th>
+      <th>Personality Traits (select two)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {info?.personality_traits.from.options.map((trait, i) => (
+      <tr>
+        <td>{i + 1}</td>
+        <td>{trait.string}</td>
+      </tr>
+    ))}
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>d6</th>
+      <th>Ideal (select one)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {info?.ideals.from.options.map((ideal, i) => (
+      <tr>
+        <td>{i + 1}</td>
+        <td>{ideal.desc}</td>
+      </tr>
+    ))}
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>d6</th>
+      <th>Bond (select one)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {info?.bonds.from.options.map((bond, i) => (
+      <tr>
+        <td>{i + 1}</td>
+        <td>{bond.string}</td>
+      </tr>
+    ))}
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>d6</th>
+      <th>Flaw (select one)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {info?.flaws.from.options.map((flaw, i) => (
+      <tr>
+        <td>{i + 1}</td>
+        <td>{flaw.string}</td>
+      </tr>
+    ))}
+</table>
