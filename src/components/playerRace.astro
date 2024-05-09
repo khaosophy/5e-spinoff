@@ -1,6 +1,34 @@
 ---
 import raceData from '../content/data/0.1/races.json';
+import traitData from '../content/data/0.1/traits.json';
 const { name } = Astro.props;
 const info = raceData.find((c) => c.name === name);
 ---
-<h3>Hello World</h3>
+<h2>{name} Traits</h2>
+<dl>
+  <dt>Ability Score Increase</dt>
+  <dd><!-- todo --></dd>
+
+  <dt>Age</dt>
+  <dd>{info.age}</dd>
+
+  <dt>Alignment</dt>
+  <dd>{info.alignment}</dd>
+
+  <dt>Size</dt>
+  <dd>{info.size}</dd>
+
+  <dt>Speed</dt>
+  <dd>{info.speed}</dd>
+
+  {info.traits.map((trait) => {
+    const traitInfo = traitData.find((t) => t.index === trait.index);
+    return (
+      <dt>{trait.name}</dt>
+      <dd>{traitInfo.desc}</dd>
+    );
+  })}
+
+  <dt>Languages</dt>
+  <dd>{info.languages.map((lang) => lang.name).join(', ')}</dd>
+</dl>
