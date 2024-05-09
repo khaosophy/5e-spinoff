@@ -1,5 +1,6 @@
 ---
 import bgData from '../content/data/0.1/backgrounds.json';
+import DiceTable from './DiceTable.astro';
 const { name, equipment, languages } = Astro.props;
 const info = bgData.find((c) => c.name === name);
 ---
@@ -24,66 +25,22 @@ const info = bgData.find((c) => c.name === name);
 <h3>Suggested Characteristics</h3>
 {info?.suggested_characteristics.map(p => <p>{p}</p>)}
 
-<table>
-  <thead>
-    <tr>
-      <th>d8</th>
-      <th>Personality Traits (select two)</th>
-    </tr>
-  </thead>
-  <tbody>
-    {info?.personality_traits.from.options.map((trait, i) => (
-      <tr>
-        <td>{i + 1}</td>
-        <td>{trait.string}</td>
-      </tr>
-    ))}
-</table>
+<DiceTable
+  title="Personality Traits (choose two)"
+  options={info?.personality_traits.from.options.map(option => option.string)}
+/>
 
-<table>
-  <thead>
-    <tr>
-      <th>d6</th>
-      <th>Ideal (select one)</th>
-    </tr>
-  </thead>
-  <tbody>
-    {info?.ideals.from.options.map((ideal, i) => (
-      <tr>
-        <td>{i + 1}</td>
-        <td>{ideal.desc}</td>
-      </tr>
-    ))}
-</table>
+<DiceTable
+  title="Ideal (choose one)"
+  options={info?.ideals.from.options.map(option => option.desc)}
+/>
 
-<table>
-  <thead>
-    <tr>
-      <th>d6</th>
-      <th>Bond (select one)</th>
-    </tr>
-  </thead>
-  <tbody>
-    {info?.bonds.from.options.map((bond, i) => (
-      <tr>
-        <td>{i + 1}</td>
-        <td>{bond.string}</td>
-      </tr>
-    ))}
-</table>
+<DiceTable
+  title="Bond (choose one)"
+  options={info?.bonds.from.options.map(option => option.string)}
+/>
 
-<table>
-  <thead>
-    <tr>
-      <th>d6</th>
-      <th>Flaw (select one)</th>
-    </tr>
-  </thead>
-  <tbody>
-    {info?.flaws.from.options.map((flaw, i) => (
-      <tr>
-        <td>{i + 1}</td>
-        <td>{flaw.string}</td>
-      </tr>
-    ))}
-</table>
+<DiceTable
+  title="Flaw (choose one)"
+  options={info?.flaws.from.options.map(option => option.string)}
+/>

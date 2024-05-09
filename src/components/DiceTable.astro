@@ -1,0 +1,19 @@
+---
+const { title, options } = Astro.props;
+---
+
+<table>
+  <thead>
+    <tr>
+      <th>d{options.length}</th>
+      <th style="text-align: left;">{title}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {options.map((option: string, index: number) => (
+      <tr>
+        <td>{index + 1}</td>
+        <td>{option}</td>
+      </tr>
+    ))}
+</table>
