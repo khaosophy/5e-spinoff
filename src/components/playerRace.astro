@@ -2,13 +2,14 @@
 import raceData from '../content/data/0.1/races.json';
 import traitData from '../content/data/0.1/traits.json';
 import PlayerSubrace from './playerSubrace.astro';
+import { getRacialAbilityIncreaseText } from '../lib/attributes';
 const { name } = Astro.props;
 const info = raceData.find((race) => race.name === name);
 ---
 <h2>{name} Traits</h2>
 <dl>
   <dt>Ability Score Increase</dt>
-  <dd><!-- todo --></dd>
+  <dd>{getRacialAbilityIncreaseText(info?.index, info?.ability_bonuses)}</dd>
 
   <dt>Age</dt>
   <dd>{info.age}</dd>
