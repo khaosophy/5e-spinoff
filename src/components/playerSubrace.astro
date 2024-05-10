@@ -1,6 +1,7 @@
 ---
 import subraceData from '../content/data/0.1/subraces.json';
 import traitData from '../content/data/0.1/traits.json';
+import { getFullAttributeName } from '../lib/attributes';
 const { key } = Astro.props;
 const info = subraceData.find((r) => r.index === key);
 ---
@@ -9,7 +10,7 @@ const info = subraceData.find((r) => r.index === key);
 
 <dl>
   <dt>Ability Score Increase</dt>
-  <dd><!-- todo --></dd>
+  <dd>Your {getFullAttributeName(info?.ability_bonuses[0].ability_score.name)} score increases by {info?.ability_bonuses[0].bonus}.</dd>
 
   {info?.languages && info.languages.length > 0 && (
     <dt>Languages</dt>
