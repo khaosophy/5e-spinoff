@@ -1,8 +1,9 @@
 ---
 import raceData from '../content/data/0.1/races.json';
 import traitData from '../content/data/0.1/traits.json';
+import PlayerSubrace from './playerSubrace.astro';
 const { name } = Astro.props;
-const info = raceData.find((c) => c.name === name);
+const info = raceData.find((race) => race.name === name);
 ---
 <h2>{name} Traits</h2>
 <dl>
@@ -32,3 +33,7 @@ const info = raceData.find((c) => c.name === name);
   <dt>Languages</dt>
   <dd>{info.languages.map((lang) => lang.name).join(', ')}</dd>
 </dl>
+
+{info.subraces.length > 0 &&
+ info.subraces.map(subrace => <PlayerSubrace key={subrace.index} />)
+}
