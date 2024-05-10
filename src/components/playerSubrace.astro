@@ -1,0 +1,25 @@
+---
+import subraceData from '../content/data/0.1/subraces.json';
+import traitData from '../content/data/0.1/traits.json';
+const { key } = Astro.props;
+const info = subraceData.find((r) => r.index === key);
+---
+<h3>{info?.name}</h3>
+<p>{info?.desc}</p>
+
+<dl>
+  <dt>Ability Score Increase</dt>
+  <dd><!-- todo --></dd>
+
+  {info?.languages && info.languages.length > 0 && (
+    <dt>Languages</dt>
+    <dd>{info?.languages.map(lang => lang.name).join(', ')}</dd>
+  )}
+
+  {info?.racial_traits && info.racial_traits.length > 0 && (
+    info.racial_traits.map(trait => (
+      <dt>{traitData.find(t => t.index === trait.index)?.name}</dt>
+      <dd>{traitData.find(t => t.index === trait.index)?.desc}</dd>
+    ))
+  )}
+</dl>
