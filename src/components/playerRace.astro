@@ -21,7 +21,7 @@ const info = raceData.find((race) => race.name === name);
   <dd>{info.size}</dd>
 
   <dt>Speed</dt>
-  <dd>{info.speed}</dd>
+  <dd>Your base walking speed is {info.speed} feet.</dd>
 
   {info.traits.map((trait) => {
     const traitInfo = traitData.find((t) => t.index === trait.index);
