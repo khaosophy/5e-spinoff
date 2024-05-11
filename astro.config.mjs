@@ -11,6 +11,10 @@ export default defineConfig({
 			},
 			sidebar: [
 				{
+					label: 'Rules',
+					autogenerate: { directory: 'rules' },
+				},
+				{
 					label: 'Backgrounds',
 					autogenerate: { directory: 'backgrounds' },
 				},
