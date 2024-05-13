@@ -12,29 +12,29 @@ const info = raceData.find((race) => race.name === name);
   <dd>{getRacialAbilityIncreaseText(info?.index, info?.ability_bonuses)}</dd>
 
   <dt>Age</dt>
-  <dd>{info.age}</dd>
+  <dd>{info?.age}</dd>
 
   <dt>Alignment</dt>
-  <dd>{info.alignment}</dd>
+  <dd>{info?.alignment}</dd>
 
   <dt>Size</dt>
-  <dd>{info.size}</dd>
+  <dd>{info?.size}</dd>
 
   <dt>Speed</dt>
-  <dd>Your base walking speed is {info.speed} feet.</dd>
+  <dd>Your base walking speed is {info?.speed} feet.</dd>
 
-  {info.traits.map((trait) => {
+  {info?.traits.map((trait) => {
     const traitInfo = traitData.find((t) => t.index === trait.index);
     return (
       <dt>{trait.name}</dt>
-      <dd>{traitInfo.desc}</dd>
+      <dd>{traitInfo?.desc}</dd>
     );
   })}
 
   <dt>Languages</dt>
-  <dd>{info.languages.map((lang) => lang.name).join(', ')}</dd>
+  <dd>{info?.languages.map((lang) => lang.name).join(', ')}</dd>
 </dl>
 
-{info.subraces.length > 0 &&
- info.subraces.map(subrace => <PlayerSubrace key={subrace.index} />)
-}
+{info?.subraces && info.subraces.length > 0 ?
+  info?.subraces.map(subrace => <PlayerSubrace key={subrace.index} />)
+  : null}
