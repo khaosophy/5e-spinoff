@@ -33,17 +33,6 @@ export default defineConfig({
 					label: 'Classes',
 					autogenerate: { directory: 'classes' },
 				},
-				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', link: '/guides/example/' },
-					],
-				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
 			],
 		}),
 	],
