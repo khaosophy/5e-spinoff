@@ -12,7 +12,14 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'Rules',
-					autogenerate: { directory: 'rules' },
+					items: [
+						{ label: 'Adventuring', link: '/rules/adventuring/' },
+						{ label: 'Ability Scores', link: '/rules/using-ability-scores/' },
+						{ label: 'Combat', link: '/rules/combat/' },
+						{ label: 'Spellcasting', link: '/rules/spellcasting/' },
+						{ label: 'Equipment', link: '/rules/equipment/' },
+						{ label: 'Appendix', link: '/rules/appendix/' },
+					]
 				},
 				{
 					label: 'Backgrounds',
