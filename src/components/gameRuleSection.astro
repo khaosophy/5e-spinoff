@@ -2,7 +2,7 @@
 import { marked } from 'marked'
 const { slug } = Astro.props
 let content = null;
-const response = await fetch(`https://www.dnd5eapi.co/api/rules/${slug}`);
+const response = await fetch(`https://www.dnd5eapi.co/api/rule-sections/${slug}`);
 if (response.ok) {
   const data = await response.json();
   content = marked(data.desc);
